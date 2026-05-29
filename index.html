@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NASA Artemis Program</title>
+  <style>
+    /* Space-themed background */
+    body {
+      margin: 0;
+      font-family: 'Trebuchet MS', sans-serif; /* similar to the slide font */
+      background-color: #0b1d3a; /* dark blue */
+      background-image: radial-gradient(#1a2a4f, #0b1d3a);
+      color: #e0f7fa;
+    }
+
+    /* Headings */
+    h1, h2 {
+      text-align: center;
+      color: #80d8ff;
+      margin-top: 20px;
+    }
+
+    /* Section boxes */
+    .section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(128, 216, 255, 0.5);
+    }
+
+    /* Paragraphs */
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #cfd8dc;
+    }
+
+    /* Video styling */
+    video {
+      display: block;
+      margin: 20px auto;
+      width: 70%;
+      border: 3px solid #80d8ff;
+      border-radius: 10px;
+    }
+
+    /* QR code box */
+    #qrcode {
+      text-align: center;
+      margin: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Title -->
+  <h1>NASA ARTEMIS PROGRAM</h1>
+  <h2>TO THE MOON ONCE MORE: THE LUNAR EXPEDITION OF ARTEMIS II</h2>
+
+  <!-- Video first -->
+  <div class="section">
+    <h2>Mission Video</h2>
+    <video controls>
+      <source src="myvideo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p style="text-align:center;">
+      This video highlights the Artemis mission journey and explains the scientific goals of Artemis II.
+    </p>
+  </div>
+
+  <!-- Background section -->
+  <div class="section">
+    <h2>Background of the Project</h2>
+    <p>Artemis II is NASA’s first crewed mission to the Moon since Apollo 17 in 1972—over five decades ago. 
+       It represents the second flight of the Space Launch System (SLS) rocket and the Orion spacecraft, 
+       following the successful uncrewed Artemis I test flight in 2022.</p>
+    <p>The mission will send a crew of four astronauts on a roughly 10-day journey around the Moon in a free-return trajectory, without landing on the surface. Its primary purpose is to validate all life-support systems, navigation, and communication capabilities of Orion in deep space with humans aboard for the first time.</p>
+    <p>Artemis II sets the stage for Artemis III, which aims to land the first woman and first person of color on the lunar south pole. The broader Artemis program envisions sustainable lunar exploration, construction of the Gateway orbital station, and ultimately preparing humanity for Mars missions.</p>
+  </div>
+
+  <!-- Research section -->
+  <div class="section">
+    <h2>Research Findings & Scientific Evidence</h2>
+    <p>Artemis I (2022) demonstrated that the Orion capsule can withstand deep-space radiation levels and re-entry temperatures exceeding 2,760°C. Sensors recorded radiation doses inside the cabin that were within acceptable limits for human crews, validating the spacecraft’s shielding design.</p>
+    <p>Studies on the lunar south pole—conducted via NASA’s Lunar Reconnaissance Orbiter and India’s Chandrayaan missions—have confirmed the presence of water ice in permanently shadowed craters. These deposits could serve as resources for drinking water, oxygen generation, and rocket propellant production for future sustained operations.</p>
+    <p>Research into prolonged space radiation exposure shows that missions beyond low Earth orbit require enhanced protective measures. Artemis II will carry biological experiments and radiation-monitoring instruments to gather real-time data on cosmic ray exposure during the trans-lunar coast.</p>
+    <p>The hybrid free-return trajectory chosen for Artemis II allows the crew to return safely to Earth without engine burns in case of emergency—a principle proven during Apollo 13. Modern computational modeling has refined this path to optimize fuel efficiency while maximizing scientific observation windows of the far side of the Moon.</p>
+  </div>
+
+  <!-- QR Code section -->
+  <div id="qrcode"></div>
+
+  <!-- Input + Button to generate custom QR -->
+  <div style="text-align:center;">
+    <input id="qrText" type="text" placeholder="Enter URL here" style="width:300px;">
+    <button onclick="generateQRCode()">Generate QR Code</button>
+  </div>
+
+  <!-- QRCode library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    // Default QR code
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+      text: "https://example.com", // replace with your GitHub Pages link
+      width: 200,
+      height: 200,
+      colorDark : "#000000",
+      colorLight : "#ffffff",
+      correctLevel : QRCode.CorrectLevel.H
+    });
+
+    // Function to generate new QR code from input
+    function generateQRCode() {
+      var text = document.getElementById("qrText").value;
+      if (text.trim() === "") {
+        alert("Please enter some text or a URL!");
+        return;
+      }
+      qrcode.clear();
+      qrcode.makeCode(text);
+    }
+  </script>
+</body>
+</html>
+
